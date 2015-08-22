@@ -1,4 +1,4 @@
-import required from 'ember-enforcer/required'
+import required from 'ember-enforcer/required';
 
 const Enforcer = {
   required: required,

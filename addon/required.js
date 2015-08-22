@@ -14,7 +14,7 @@ function _enforceAttrMixin(attrName, errorMessage) {
       this._super(...arguments);
 
       if (Ember.isEmpty(errorMessage)) {
-        errorMessage = defaultAssertMessage(attrName);
+        errorMessage = _defaultAssertMessage(attrName);
       }
 
       Ember.assert(errorMessage, this.get('attrs').hasOwnProperty(attrName));
@@ -30,14 +30,14 @@ function _enforceAttrMixin(attrName, errorMessage) {
 //   });
 // }
 
-export default function(attrName, options) {
+export default function require(attrName, options) {
   Ember.assert('Error: Enforcer.required() requires an attrName as the first argument',
     Ember.isEmpty(attrName));
 
   let type;
   let message;
 
-  if (Ember.isPresent(options) {
+  if (Ember.isPresent(options)) {
     type = options.type;
     message = options.message;
   }
@@ -50,4 +50,4 @@ export default function(attrName, options) {
   // }
 
   return mixin;
-};
+}
