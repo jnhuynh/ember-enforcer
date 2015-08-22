@@ -1,7 +1,7 @@
 {
   "name": "ember-enforcer",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember CLI addon for component attribute validation",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,7 +11,13 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "author": "John Huynh",
+  "homepage": "https://github.com/jnhuynh/ember-enforcer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:jnhuynh/ember-enforcer.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -38,7 +44,9 @@
     "ember-try": "0.0.6"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "assertion",
+    "ember-enforcer",
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.3"
