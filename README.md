@@ -1,25 +1,73 @@
-# Ember-enforcer
-
-This README outlines the details of collaborating on this Ember addon.
+# Ember Enforcer
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```
+ember install ember-enforcer
+```
 
-## Running
+## API
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+#### Required Attributes
 
-## Running Tests
+```
+Enforcer.required(attributeName, [attributeType], [errorMessage])
+```
 
-* `ember test`
-* `ember test --server`
+`attributeType` argument can be any of the following strings:
+- `string`
+- `number`
+- `object`
+- `bool`
+- `function`
 
-## Building
+```
+import Ember from 'ember';
+import Enforcer from 'ember-enforcer';
 
-* `ember build`
+const ButtonComponent = Ember.Component.extend(
+  Enforcer.required('height'), // Attribute with no type requirement
+  Enforcer.required('width', 'number'),
+  Enforcer.required('model', 'object'),
+  Enforcer.required('enabled', 'bool'),
+  Enforcer.required('onClick', 'function', 'Component requires onClick callback attribute'), // Attribute with custom error message
+  Enforcer.required('color', 'string', 'Component requires hex string attribute'),
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+  {
+    // Component logic goes here...
+});
+
+export default ButtonComponent;
+```
+
+#### Optional Attributes
+
+```
+Enforcer.optional(attributeName, [attributeType], [errorMessage])
+```
+
+`attributeType` argument can be any of the following strings:
+- `string`
+- `number`
+- `object`
+- `bool`
+- `function`
+
+```
+import Ember from 'ember';
+import Enforcer from 'ember-enforcer';
+
+const ButtonComponent = Ember.Component.extend(
+  Enforcer.optional('height'), // Attribute with no type requirement
+  Enforcer.optional('width', 'number'),
+  Enforcer.optional('model', 'object'),
+  Enforcer.optional('enabled', 'bool'),
+  Enforcer.optional('onClick', 'function', 'Component requires onClick callback attribute'), // Attribute with custom error message
+  Enforcer.optional('color', 'string', 'Component requires hex string attribute'),
+
+  {
+    // Component logic goes here...
+});
+
+export default ButtonComponent;
+```
