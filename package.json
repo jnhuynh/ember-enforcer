@@ -46,7 +46,7 @@
   "keywords": [
     "ember-addon",
     "assertion",
-    "ember-enforcer",
+    "ember-enforcer"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.3"
