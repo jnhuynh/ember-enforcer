@@ -11,27 +11,33 @@ ember install ember-enforcer
 #### Required Attributes
 
 ```
-Enforcer.required(attributeName, [attributeType], [errorMessage])
+Enforcer.required(attrName, [options])
 ```
 
-`attributeType` argument can be any of the following strings:
-- `string`
-- `number`
-- `object`
-- `bool`
-- `function`
+`options` can have any of the following keys:
+- `type`
+  `type` arguments can be any of the following strings:
+  - `string`
+  - `number`
+  - `object`
+  - `bool`
+  - `function`
+- `message`
 
 ```
 import Ember from 'ember';
 import Enforcer from 'ember-enforcer';
 
 const ButtonComponent = Ember.Component.extend(
-  Enforcer.required('height'), // Attribute with no type requirement
-  Enforcer.required('width', 'number'),
-  Enforcer.required('model', 'object'),
-  Enforcer.required('enabled', 'bool'),
-  Enforcer.required('onClick', 'function', 'Component requires onClick callback attribute'), // Attribute with custom error message
-  Enforcer.required('color', 'string', 'Component requires hex string attribute'),
+  Enforcer.required('height'),
+  Enforcer.required('width', { type: 'number' }),
+  Enforcer.required('model', { type: 'object' }),
+  Enforcer.required('enabled', { type: 'bool' }),
+  Enforcer.required('color', { message: 'Component requires hex string attribute' }),
+  Enforcer.required('onClick', {
+    type: 'function',
+    message: 'Component requires onClick callback attribute'
+  }),
 
   {
     // Component logic goes here...
@@ -40,34 +46,7 @@ const ButtonComponent = Ember.Component.extend(
 export default ButtonComponent;
 ```
 
-#### Optional Attributes
+## Future Enhancements
 
-```
-Enforcer.optional(attributeName, [attributeType], [errorMessage])
-```
-
-`attributeType` argument can be any of the following strings:
-- `string`
-- `number`
-- `object`
-- `bool`
-- `function`
-
-```
-import Ember from 'ember';
-import Enforcer from 'ember-enforcer';
-
-const ButtonComponent = Ember.Component.extend(
-  Enforcer.optional('height'), // Attribute with no type requirement
-  Enforcer.optional('width', 'number'),
-  Enforcer.optional('model', 'object'),
-  Enforcer.optional('enabled', 'bool'),
-  Enforcer.optional('onClick', 'function', 'Component requires onClick callback attribute'), // Attribute with custom error message
-  Enforcer.optional('color', 'string', 'Component requires hex string attribute'),
-
-  {
-    // Component logic goes here...
-});
-
-export default ButtonComponent;
-```
+- ES7 decorators once the proposal is formalized
+- `type` can be a function that returns if attr is a valid type
