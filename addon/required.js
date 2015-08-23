@@ -1,4 +1,4 @@
-import Ember from 'Ember';
+import Ember from 'ember';
 
 function _defaultAssertMessage(attrName, attrType) {
   if (Ember.isPresent(attrType)) {
@@ -30,9 +30,9 @@ function _enforceAttrMixin(attrName, errorMessage) {
 //   });
 // }
 
-export default function require(attrName, options) {
+export default function required(attrName, options) {
   Ember.assert('Error: Enforcer.required() requires an attrName as the first argument',
-    Ember.isEmpty(attrName));
+    Ember.isPresent(attrName));
 
   let type;
   let message;
