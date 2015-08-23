@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com:jnhuynh/ember-enforcer.git"
+    "url": "https://github.com/jnhuynh/ember-enforcer"
   },
   "engines": {
     "node": ">= 0.10.0"
