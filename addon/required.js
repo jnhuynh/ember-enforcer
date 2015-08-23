@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 function _defaultAssertMessage(attrName, attrType) {
   if (Ember.isPresent(attrType)) {
-    return ['Error:', attrName, 'of type', attrType, 'is required'].join(' ');
+    return ['Component', attrName, 'of type', attrType, 'is required'].join(' ');
   } else {
-    return ['Error:', attrName, 'is required'].join(' ');
+    return ['Component', attrName, 'is required'].join(' ');
   }
 }
 
@@ -16,7 +16,6 @@ function _enforceAttrMixin(attrName, errorMessage) {
       if (Ember.isEmpty(errorMessage)) {
         errorMessage = _defaultAssertMessage(attrName);
       }
-
       Ember.assert(errorMessage, this.get('attrs').hasOwnProperty(attrName));
     }
   });
@@ -31,7 +30,7 @@ function _enforceAttrMixin(attrName, errorMessage) {
 // }
 
 export default function required(attrName, options) {
-  Ember.assert('Error: Enforcer.required() requires an attrName as the first argument',
+  Ember.assert('Enforcer.required() requires an attrName as the first argument',
     Ember.isPresent(attrName));
 
   let type;
