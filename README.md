@@ -10,13 +10,12 @@ ember install ember-enforcer
 
 #### Required Attributes
 
-```
+```js
 Enforcer.required(attrName, [options])
 ```
 
 `options` can have any of the following keys:
-- `type`
-  `type` arguments can be any of the following strings:
+- `type` values can be any of the following strings:
   - `string`
   - `number`
   - `object`
@@ -24,7 +23,7 @@ Enforcer.required(attrName, [options])
   - `function`
 - `message`
 
-```
+```js
 import Ember from 'ember';
 import Enforcer from 'ember-enforcer';
 
