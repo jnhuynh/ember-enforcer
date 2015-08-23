@@ -1,5 +1,9 @@
 # Ember Enforcer
 
+Ember Enforcer is an addon that facilitates the declaration and **enforcement**
+of `Ember.Component` attributes. It exposes an API that return `Ember.Mixin`
+instances which can be mixed into your components.
+
 ## Installation
 
 ```
