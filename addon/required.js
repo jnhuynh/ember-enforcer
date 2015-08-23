@@ -6,12 +6,12 @@ const _supportedAttrTypes = {
   'function': () => {
   },
   'number': (value) => {
-    return Ember.isPresent(value) && typeof value === 'number';
+    return Ember.isPresent(value) && Ember.typeOf(value) === 'number';
   },
   'object': () => {
   },
   'string': (value) => {
-    return Ember.isPresent(value) && typeof value === 'string';
+    return Ember.isPresent(value) && Ember.typeOf(value) === 'string';
   },
 };
 
