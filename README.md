@@ -1,3 +1,12 @@
+# Ember Enforcer has been sunsetted
+
+Instead of maintaining two different addons trying to do the same thing, I've
+collaborated with Yapplabs to create Ember Strong Attrs.
+
+As such, Ember Enforcer has been sunsetted in favor of [ember-strong-attrs](https://github.com/yapplabs/ember-strong-attrs).
+
+---
+
 # Ember Enforcer
 
 Ember Enforcer is an addon that facilitates the declaration and **enforcement**
